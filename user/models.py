@@ -30,3 +30,12 @@ class User(AbstractBaseUser):
         verbose_name = 'user'
         verbose_name_plural = 'users'
         db_table = 'user'
+
+
+class Admin(models.Model):
+    username = models.CharField(_('username'),max_length=124)
+
+    class Meta:
+        verbose_name = 'admin'
+        verbose_name_plural = 'admins'
+        db_table = 'admin'
