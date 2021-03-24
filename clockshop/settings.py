@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'user.apps.UserConfig'
 ]
 
 MIDDLEWARE = [
@@ -78,12 +79,13 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'clockshop',
         'USER': 'mohsen',
-        'PASSWORD': '1',
+        'PASSWORD': 'Abc123!@#',
         'HOST': '127.0.0.1',
         'PORT': '5432',
     }
 }
 
+AUTH_USER_MODEL = 'user.User'
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
