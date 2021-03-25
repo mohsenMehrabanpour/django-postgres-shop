@@ -1,4 +1,6 @@
 from django.contrib.auth.models import AbstractBaseUser
+from django.contrib.auth.models import UserManager
+
 from django.contrib.auth.validators import UnicodeUsernameValidator
 from django.utils.translation import gettext_lazy as _
 from django.db import models
@@ -23,8 +25,19 @@ class User(AbstractBaseUser):
     address = models.CharField(_('address'), max_length=255)
     created_at = models.DateTimeField(_('created_at'), auto_now_add=True)
     updated_at = models.DateTimeField(_('updated_at'), auto_now=True)
+    email = models.EmailField(_('email address'), blank=True)
     USERNAME_FIELD = 'username'
-
+    is_staff = models.BooleanField(
+        _('staff status'),
+        default=False,
+        help_text=_('Designates whether the user can log into this admin site.'),
+    )
+    is_superuser = models.BooleanField(
+        _('superuser status'),
+        default=False,
+        help_text=_('Designates whether the user can log into this admin site.'),
+    )
+    objects = UserManager()
 
     class Meta:
         verbose_name = 'user'
