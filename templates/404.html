@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block title %} page is not accessable {% endblock %}
+
+{% block body %}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="card text-dark bg-warning mb-3">
+            <div class="card-body">
+                {% include 'messages.html' %}
+            </div>
+        </div>
+        <a href="#" class="btn btn-primary w-100">homepage</a>
+    </div>
+</div>
+
+{% endblock %}

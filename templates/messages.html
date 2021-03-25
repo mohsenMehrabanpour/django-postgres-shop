@@ -1,0 +1,42 @@
+<div class="container mt-2">
+    <div class="row justify-content-center">
+        <div class='col-12 col-md-11'>
+            {% if messsage_type == 'error' %}
+    {% for i in messages %}
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+        <span class="sr-only">Close</span>
+        </button>
+        {{i}}
+    </div>
+    {% endfor %}
+{% endif %}
+
+{% if messsage_type == 'warning' %}
+    {% for i in messages %}
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+        <span class="sr-only">Close</span>
+        </button>
+        {{i}}
+    </div>
+    {% endfor %}
+{% endif %}
+
+
+{% if messsage_type == 'success' %}
+    {% for i in messages %}
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+        <span class="sr-only">Close</span>
+        </button>
+        {{i}}
+    </div>
+    {% endfor %}
+{% endif %}
+        </div>
+    </div>
+</div>
