@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% block title %} admin panel {% endblock %}
+{% block body %}
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            {% include 'messages.html' %}
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+
+                <div class="form-group">
+                    <label for="title">title : </label>
+                    <input type="text" class="form-control" name="title" id="title" aria-describedby="helpId">
+                </div>
+
+                <div class="form-group">
+                  <label for="price">price :</label>
+                  <input type="text" class="form-control" name="price" id="price" aria-describedby="helpId">
+                </div>
+
+                <div class="form-group">
+                  <label for="description">description :</label>
+                  <textarea class="form-control" name="description" id="description" rows="3"></textarea>
+                </div>
+
+                <div class="form-group">
+                  <label for="category">category :</label>
+                  <input type="text" name="category" id="category" class="form-control" aria-describedby="helpId">
+                </div>
+
+                <div class="form-group">
+                    <label for="file">image :</label>
+                    <input type="file" class="form-control-file" name="image_file">
+                    <small id="fileHelpId" class="form-text text-muted">upload your product picture</small>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

@@ -2,10 +2,19 @@ from django.db import models
 from django.utils.translation import gettext_lazy as _
 
 
+class Category(models.Model):
+    title = models.CharField(_('title'),max_length=255)
+
+    class Meta:
+        verbose_name = 'category'
+        verbose_name_plural = 'categories'
+        db_table = 'category'
+
 class Product(models.Model):
     title = models.CharField(_('title'), max_length=255)
     price = models.IntegerField(_('price'))
     description = models.TextField(_('description'), blank=True)
+    category = models.ManyToManyField(Category)
     created_at = models.DateTimeField(_('created_at'), auto_now_add=True)
     updated_at = models.DateTimeField(_('updated_at'), auto_now=True)
 
@@ -26,12 +35,3 @@ class Image(models.Model):
         verbose_name_plural = 'images'
         db_table = 'image'
 
-
-class Category(models.Model):
-    title = models.CharField(_('title'),max_length=255)
-    product = models.ManyToManyField(Product)
-
-    class Meta:
-        verbose_name = 'category'
-        verbose_name_plural = 'categories'
-        db_table = 'category'
