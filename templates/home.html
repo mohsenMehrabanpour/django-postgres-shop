@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% block title %}صفحه اصلی{% endblock%}
+{% block body %}
+
+    <div class="container">
+        <div class="row">
+            {% for product in page_obj %}
+          
+            <div class="col-12 col-md-4 mt-2">
+                <div class="card">
+                    <div class="card-body">
+                      <img src=" {{ product.Image }} " class="card-img-top img-fluid img-thumbnail">
+                      <h5 class="card-title">{{ product.title }}</h5>
+                      <p class="card-text"> {{ product.description }} </p>
+                      <p class="card-text"> {{ product.price }} </p>
+                      <a href=" {% url 'single_product' product.id %} " class="btn btn-primary">buy</a>
+                    </div>
+                  </div>
+            </div>
+            
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="pagination">
+    <span class="step-links">
+        {% if page_obj.has_previous %}
+            <a href="?page=1">&laquo; first</a>
+            <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+        {% endif %}
+
+        <span class="current">
+            Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+        </span>
+
+        {% if page_obj.has_next %}
+            <a href="?page={{ page_obj.next_page_number }}">next</a>
+            <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+        {% endif %}
+    </span>
+</div>
+{% endblock%}

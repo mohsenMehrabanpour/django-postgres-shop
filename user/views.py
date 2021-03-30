@@ -1,7 +1,7 @@
 from product.models import Product, Image, Category
-from django.http.response import Http404, HttpResponse
+from django.http.response import Http404
 from django.shortcuts import redirect, render
-from django.urls.base import resolve, reverse
+from django.urls.base import reverse
 from django.views import View
 from django.contrib.auth import authenticate
 from django.contrib.auth import login as django_login
